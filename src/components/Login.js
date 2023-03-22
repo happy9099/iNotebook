@@ -24,10 +24,11 @@ const Login = (props) => {
             localStorage.setItem('token', json.authtoken);
             //using usehistory instead of useNavigate --> supported
             history("/");
+            props.showAlert("Logged in Successfully", "success")
 
           }
           else{
-            alert("invalid");
+            props.showAlert("Invalid Credentials", "danger")
           }
     }
 

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 //using usehistory instead of useNavigate --> supported
 import { useNavigate} from 'react-router-dom';
 
-const Signup = () => {
+const Signup = (props) => {
     const [credentials,setCredentials] = useState({name: "", email: "", password: "", cpassword: ""})
     let history = useNavigate();
 
@@ -24,10 +24,11 @@ const Signup = () => {
             localStorage.setItem('token', json.authtoken);
             //using usehistory instead of useNavigate --> supported
             history("/");
+            props.showAlert("Account Created Successfully", "success")
 
           }
           else{
-            alert("invalid");
+              props.showAlert("Invalid Details", "danger")
           }
     }
 
