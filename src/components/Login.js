@@ -23,8 +23,8 @@ const Login = (props) => {
             //Save the auth-Token and Redirect
             localStorage.setItem('token', json.authtoken);
             //using usehistory instead of useNavigate --> supported
-            history("/");
             props.showAlert("Logged in Successfully", "success")
+            history("/");
 
           }
           else{
@@ -37,7 +37,8 @@ const Login = (props) => {
     } 
 
   return (
-    <div>
+    <div className='mt-3'>
+        <h2>Login to continue to iNotebook</h2>
    <form onSubmit={handleSubmit}>
   <div className="mb-3">
     <label htmlFor="email" className="form-label">Email address</label>
